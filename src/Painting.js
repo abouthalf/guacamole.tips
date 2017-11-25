@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Painting.css';
 
-class App extends Component {
+import Layer from './layers/Layer';
+
+class Painting extends Component 
+{
   render() {
     return (
       <div className="App">
@@ -16,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Painting;
