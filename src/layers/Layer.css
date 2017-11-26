@@ -1,8 +1,58 @@
 .Layer {
-    position: relative;
-    width: 100vmin;
-    height: 100vmin;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center center;
+
+    animation-duration: 12s;
+}
+
+.Layer.day-to-night {
+    animation-name: day-to-night;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+
+.Layer.lights-on {
+    animation-name: lights-on;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+
+.Layer.lights-off {
+    animation-name: lights-off;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+
+@keyframes day-to-night {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes lights-on {
+    0%, 65% {
+        opacity: 0;
+    }
+    66%, 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes lights-off {
+    0%, 65% {
+        opacity: 1;
+    }
+    66%, 100% {
+        opacity: 0;
+    }
 }

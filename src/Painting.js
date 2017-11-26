@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import './Painting.css';
 
-import Layer from './layers/Layer';
+// basics
+import Day from './layers/Day';
+import Night from './layers/Night';
+import Lights from './layers/Lights';
+
+// scribbles
+import Cut from './layers/Cut';
 
 class Painting extends Component 
 {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="Painting">
+        <Day />
+        <Night />
+        <Lights />
+        <Cut />
       </div>
     );
   }
