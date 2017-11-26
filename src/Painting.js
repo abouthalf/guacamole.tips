@@ -24,24 +24,41 @@ import GreenAvocados from './layers/GreenAvocados';
 import Garlic from './layers/Garlic';
 import FourLimes from './layers/FourLimes';
 
+// timing
+import {duration} from './layers/const';
+
 class Painting extends Component 
 {
   constructor(props) {
     super(props);
     // set default visibility states
     this.state = {
-      scribbles: [false, true, true, true],
-      ingredients: [false, true, true, true, true, true, true, true]
+      scribbles: _.shuffle([false, true, true, true]),
+      ingredients: _.shuffle([false, true, true, true, true, true, true, true])
     };
   }
   handleAnimationIteration = (event) => {
+    // git the bits
+    let scribbles = this.state.scribbles.slice();
+    let ingredients = this.state.ingredients.slice();
     // shuffle 
     let state = {
-      scribbles: _.shuffle(this.state.scribbles),
-      ingredients: _.shuffle(this.state.ingredients)
+      scribbles: _.shuffle(scribbles),
+      ingredients
     }
     this.setState(state);
-    // console.log(event.elapsedTime);
+    // in a bit - swap ingredients
+    let t = (duration/2) * 1000;
+    setTimeout(() => {
+      let scribbles = this.state.scribbles.slice();
+      let ingredients = _.shuffle(this.state.ingredients.slice());
+      let state = {
+        scribbles,
+        ingredients
+      }
+      this.setState(state);
+    }, t);
+    
   }
   render() {
     return (
@@ -55,7 +72,7 @@ class Painting extends Component
         <GreenAvocados hide={this.state.ingredients[5]} />
         <Garlic hide={this.state.ingredients[6]} />
         <FourLimes hide={this.state.ingredients[7]} />
-        <Night handleAnimationIteration={this.handleAnimationIteration} />
+        <Night handleAnimationIteration={this.handleAnimationIteration}  />
         <Lights />
         <Cut hide={this.state.scribbles[0]}/>
         <Good hide={this.state.scribbles[1]} />

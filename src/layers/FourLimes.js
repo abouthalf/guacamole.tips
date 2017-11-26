@@ -4,7 +4,7 @@ import Layer from './Layer';
 
 const FourLimes = ({hide}) => {
     let h = !!hide;
-    return <Layer image={lights} hide={h} transition="lights-off" />
+    return <Layer image={lights} hide={h} transition="lights-off" blend="overlay" />
 }
 
 export default FourLimes

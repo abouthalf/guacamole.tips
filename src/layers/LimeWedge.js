@@ -4,7 +4,7 @@ import Layer from './Layer';
 
 const LimeWedge = ({hide}) => {
     let h = !!hide;
-    return <Layer image={lights} hide={h} transition="lights-off" />
+    return <Layer image={lights} hide={h} blend="overlay" />
 }
 
 export default LimeWedge;
