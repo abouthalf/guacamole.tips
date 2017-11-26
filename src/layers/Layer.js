@@ -12,7 +12,8 @@ export default class Layer extends Component
         };
         return <div className={c} 
                 hidden={this.props.hide}
-                style={styles}>
+                style={styles}
+                onAnimationIteration={this.props.handleAnimationIteration}>
             {this.props.children}
         </div>
     }
@@ -22,5 +23,6 @@ Layer.defaultProps = {
     image: '//0',
     hide: false,
     transition: '',
-    blend: 'normal'
+    blend: 'normal',
+    handleAnimationIteration: function(){}
 }
