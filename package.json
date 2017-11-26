@@ -2,6 +2,7 @@
   "name": "guacamole-tips",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://guacamole.tips",
   "dependencies": {
     "classnames": "^2.2.5",
     "gh-pages": "^1.1.0",
